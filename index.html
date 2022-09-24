@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/app.css">
+  <script src='https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js'></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <title>php ajax dischi</title>
+</head>
+<body>
+  <div id="app">
+    <header class="main-header">
+      <img src="./img/Spotify.svg" alt="logo spotify">
+      <div class="inputs">
+        <select v-model="selectGenre" @click="$emit('search', selectGenre )" class="rounded" name="genere" id="genere">
+          <option value="" selected disabled hidden>Choose Genre</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Metal">Metal</option>
+          <option value="Jazz">Jazz</option>
+          <option value="">Reset</option>
+        </select>
+        <input v-model="albumNameText" @keyup="$emit('searchName',albumNameText)" type="text" class="rounded" placeholder="Album Name es: 'In Rock'">
+        <input v-model="albumArtistText" @keyup="$emit('searchArtist',albumArtistText)" type="text" class="rounded" placeholder="Artist es: 'Jimi Hendrix'">
+        <input v-model="albumYearText" @click.left="$emit('searchYear',albumYearText)" @keyup="onChange" type="number" class="rounded" placeholder="Year es: '2022'">
+  
+      </div>
+      
+    </header>
+    <main>
+      <div class="my-container">
+        <div class="row gap-4">
+          <div class="my-card" v-for="(album, index) in albums" :key="index" style="width: 13rem;">
+            <img class="my-card-img" :src="album.poster" :alt="album.title">
+            <div class="my-card-bottom">
+              <h5>{{album.title}}</h5>
+              <p class="my-card-description">
+                {{album.author}} <br>
+                {{album.year}}
+              </p>
+            </div>
+          </div>
+      
+        </div> 
+        
+        
+  
+      </div>
+    </main>
+
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
