@@ -15,7 +15,7 @@
     <header class="main-header">
       <img src="./img/Spotify.svg" alt="logo spotify">
       <div class="inputs">
-        <select v-model="selectGenre" @click="$emit('search', selectGenre )" class="rounded" name="genere" id="genere">
+        <select class="rounded" name="genere" id="genere">
           <option value="" selected disabled hidden>Choose Genre</option>
           <option value="Rock">Rock</option>
           <option value="Pop">Pop</option>
@@ -23,9 +23,6 @@
           <option value="Jazz">Jazz</option>
           <option value="">Reset</option>
         </select>
-        <input v-model="albumNameText" @keyup="$emit('searchName',albumNameText)" type="text" class="rounded" placeholder="Album Name es: 'In Rock'">
-        <input v-model="albumArtistText" @keyup="$emit('searchArtist',albumArtistText)" type="text" class="rounded" placeholder="Artist es: 'Jimi Hendrix'">
-        <input v-model="albumYearText" @click.left="$emit('searchYear',albumYearText)" @keyup="onChange" type="number" class="rounded" placeholder="Year es: '2022'">
   
       </div>
       
